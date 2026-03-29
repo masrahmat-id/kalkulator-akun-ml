@@ -3,112 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLBB Modern Price Calculator</title>
+    <title>MLBB Modern Price Calculator - Detailed Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #0b0f1a; color: #e2e8f0; font-family: 'Inter', sans-serif; }
-        .input-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid #334155; }
-        .gradient-text { background: linear-gradient(to right, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body { background-color: #0b0f1a; color: #e2e8f0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .input-card { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+        .gradient-text { background: linear-gradient(90deg, #60a5fa, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .price-row:nth-child(even) { background-color: rgba(255,255,255,0.03); }
     </style>
 </head>
-<body class="min-h-screen p-4 md:p-8">
+<body class="min-h-screen p-4 md:p-10">
 
-    <div class="max-w-3xl mx-auto">
-        <header class="text-center mb-8">
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-10">
             <h1 class="text-4xl font-extrabold gradient-text">Kalkulator Akun MLBB</h1>
-            <p class="text-slate-400 mt-2">Versi Update: Legend, Grand, Exquisite, Deluxe, Exceptional, Common</p>
+            <p class="text-slate-400 mt-2">Update Sistem Skin 2026 (Exquisite/Grand/Deluxe)</p>
         </header>
 
-        <div class="input-card p-6 rounded-2xl shadow-2xl space-y-6">
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="space-y-4">
-                    <h3 class="text-blue-400 font-bold border-b border-blue-900 pb-1">Tier Sultan</h3>
-                    <div>
-                        <label class="text-xs uppercase tracking-wider text-slate-500">Skin Legend</label>
-                        <input type="number" id="skinLegend" class="w-full bg-slate-800 p-3 rounded-lg mt-1 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="0">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            <div class="lg:col-span-3 input-card p-6 rounded-3xl shadow-2xl space-y-6">
+                <h3 class="text-lg font-bold border-b border-slate-700 pb-2">Input Spesifikasi Akun</h3>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="col-span-2 md:col-span-1">
+                        <label class="text-xs font-semibold text-blue-400 uppercase">Skin Legend</label>
+                        <input type="number" id="skinLegend" class="w-full bg-slate-900/50 p-3 rounded-xl mt-1 focus:ring-2 focus:ring-blue-500 outline-none border border-slate-700" placeholder="0">
+                    </div>
+                    <div class="col-span-2 md:col-span-1">
+                        <label class="text-xs font-semibold text-yellow-500 uppercase">Skin Grand (Collector/Event)</label>
+                        <input type="number" id="skinGrand" class="w-full bg-slate-900/50 p-3 rounded-xl mt-1 focus:ring-2 focus:ring-yellow-500 outline-none border border-slate-700" placeholder="0">
                     </div>
                     <div>
-                        <label class="text-xs uppercase tracking-wider text-slate-500">Skin Grand (Collector/Event)</label>
-                        <input type="number" id="skinGrand" class="w-full bg-slate-800 p-3 rounded-lg mt-1 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="0">
+                        <label class="text-xs font-semibold text-purple-400 uppercase">Exquisite</label>
+                        <input type="number" id="skinExquisite" class="w-full bg-slate-900/50 p-3 rounded-xl mt-1 focus:ring-2 focus:ring-purple-500 outline-none border border-slate-700" placeholder="0">
+                    </div>
+                    <div>
+                        <label class="text-xs font-semibold text-pink-400 uppercase">Deluxe</label>
+                        <input type="number" id="skinDeluxe" class="w-full bg-slate-900/50 p-3 rounded-xl mt-1 focus:ring-2 focus:ring-pink-500 outline-none border border-slate-700" placeholder="0">
+                    </div>
+                    <div>
+                        <label class="text-xs font-semibold text-green-400 uppercase">Exceptional</label>
+                        <input type="number" id="skinExceptional" class="w-full bg-slate-900/50 p-3 rounded-xl mt-1 outline-none border border-slate-700" placeholder="0">
+                    </div>
+                    <div>
+                        <label class="text-xs font-semibold text-slate-400 uppercase">Common</label>
+                        <input type="number" id="skinCommon" class="w-full bg-slate-900/50 p-3 rounded-xl mt-1 outline-none border border-slate-700" placeholder="0">
                     </div>
                 </div>
 
-                <div class="space-y-4">
-                    <h3 class="text-purple-400 font-bold border-b border-purple-900 pb-1">Tier Reguler</h3>
-                    <div>
-                        <label class="text-xs uppercase tracking-wider text-slate-500">Skin Exquisite (High Quality)</label>
-                        <input type="number" id="skinExquisite" class="w-full bg-slate-800 p-3 rounded-lg mt-1 focus:ring-2 focus:ring-purple-500 outline-none" placeholder="0">
+                <div class="pt-4 border-t border-slate-700 grid grid-cols-2 gap-4">
+                    <div class="col-span-2 md:col-span-1">
+                        <label class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Keamanan Login</label>
+                        <select id="loginType" class="w-full bg-slate-900 p-3 rounded-xl mt-1 outline-none border border-slate-700">
+                            <option value="1.0">Monsep Polos (Aman)</option>
+                            <option value="0.75">Monsep (Ada Minus)</option>
+                            <option value="0.40">Log Pancingan/Nabrak</option>
+                        </select>
                     </div>
-                    <div>
-                        <label class="text-xs uppercase tracking-wider text-slate-500">Skin Deluxe (Mid Quality)</label>
-                        <input type="number" id="skinDeluxe" class="w-full bg-slate-800 p-3 rounded-lg mt-1 focus:ring-2 focus:ring-purple-500 outline-none" placeholder="0">
+                    <div class="col-span-2 md:col-span-1">
+                        <label class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Win Rate (%)</label>
+                        <input type="number" id="wr" class="w-full bg-slate-900 p-3 rounded-xl mt-1 outline-none border border-slate-700" placeholder="60">
                     </div>
                 </div>
+
+                <button onclick="calculate()" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-900/20 transition-all duration-300 transform active:scale-95">
+                    HITUNG ESTIMASI HARGA
+                </button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label class="text-xs uppercase tracking-wider text-slate-500">Exceptional (Standard)</label>
-                    <input type="number" id="skinExceptional" class="w-full bg-slate-800 p-3 rounded-lg mt-1 outline-none" placeholder="0">
+            <div id="resultBox" class="lg:col-span-2 hidden space-y-4">
+                <div class="bg-white rounded-3xl p-6 text-slate-900 shadow-2xl text-center">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Estimasi Total</p>
+                    <h2 id="finalPrice" class="text-4xl font-black text-blue-700 my-1">Rp 0</h2>
+                    <p id="description" class="text-xs italic text-slate-500"></p>
                 </div>
-                <div>
-                    <label class="text-xs uppercase tracking-wider text-slate-500">Common Skins</label>
-                    <input type="number" id="skinCommon" class="w-full bg-slate-800 p-3 rounded-lg mt-1 outline-none" placeholder="0">
+
+                <div class="input-card rounded-3xl p-6 overflow-hidden">
+                    <h3 class="text-sm font-bold text-blue-400 mb-4 uppercase tracking-wider">Rincian Harga Per Unit</h3>
+                    <div class="text-xs space-y-3" id="priceBreakdown">
+                        </div>
                 </div>
-            </div>
 
-            <hr class="border-slate-700">
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label class="text-xs uppercase tracking-wider text-slate-500">Kualitas Login</label>
-                    <select id="loginType" class="w-full bg-slate-800 p-3 rounded-lg mt-1 outline-none">
-                        <option value="1.0">Monsep (Data Polos)</option>
-                        <option value="0.75">Monsep (Minus Data)</option>
-                        <option value="0.40">Log Pancingan/Nabrak</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="text-xs uppercase tracking-wider text-slate-500">Win Rate Total (%)</label>
-                    <input type="number" id="wr" class="w-full bg-slate-800 p-3 rounded-lg mt-1 outline-none" placeholder="Contoh: 60">
-                </div>
-            </div>
-
-            <button onclick="calculate()" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02]">
-                CEK HARGA SEKARANG
-            </button>
-        </div>
-
-        <div id="resultBox" class="hidden mt-8 p-8 rounded-2xl bg-white text-slate-900 text-center shadow-2xl">
-            <p class="text-sm font-bold text-slate-500 uppercase tracking-widest">Estimasi Harga Pasar</p>
-            <h2 id="finalPrice" class="text-5xl font-black my-2 text-blue-700">Rp 0</h2>
-            <p id="description" class="text-slate-600 text-sm italic"></p>
-            
-            <div class="mt-6 flex gap-2 justify-center">
-                <button onclick="location.reload()" class="px-4 py-2 bg-slate-200 rounded-lg text-xs font-bold">RESET</button>
-                <button onclick="window.print()" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-xs font-bold">SIMPAN HASIL</button>
+                <button onclick="window.print()" class="w-full py-3 bg-slate-800 rounded-2xl text-xs font-bold hover:bg-slate-700 transition">SIMPAN / SCREENSHOT</button>
             </div>
         </div>
 
-        <footer class="mt-10 text-center text-slate-500 text-xs">
-            <p>&copy; 2026 MLBB Calculator - Powered by Rahmattulah</p>
+        <footer class="mt-12 text-center text-slate-600 text-xs">
+            <p>&copy; 2026 MLBB Calculator - Created by Rahmattulah</p>
         </footer>
     </div>
 
     <script>
         function calculate() {
-            // Estimasi Harga Satuan Berdasarkan Tier Terbaru
-            const P_LEGEND = 300000;      // Legend
-            const P_GRAND = 180000;       // Collector/Limited/Grand
-            const P_EXQUISITE = 60000;    // Dulu setara Epic Limited/V.E.N.O.M
-            const P_DELUXE = 25000;       // Dulu setara Special/Summer
-            const P_EXCEPTIONAL = 10000;  // Dulu setara Elite
-            const P_COMMON = 1500;        // Skin Normal/Common
+            // KONFIGURASI HARGA (Update Itemku 2026)
+            const PRICES = {
+                legend: 350000,
+                grand: 200000,
+                exquisite: 75000,
+                deluxe: 30000,
+                exceptional: 12000,
+                common: 1500
+            };
 
-            // Ambil Input
-            let legend = (document.getElementById('skinLegend').value || 0) * P_LEGEND;
-            let grand = (document.getElementById('skinGrand').value || 0) * P_GRAND;
+            // Ambil Nilai Input
+            const val = {
+                legend: parseInt(document.getElementById('skinLegend').value) || 0,
+                grand: parseInt(document.getElementById('skinGrand').value) || 0,
+                exquisite: parseInt(document.getElementById('skinExquisite').value) || 0,
+                deluxe: parseInt(document.getElementById('skinDeluxe').value) || 0,
+                exceptional: parseInt(document.getElementById('skinExceptional').value) || 0,
+                common: parseInt(document.getElementById('skinCommon').value) || 0
+            };
+
+            const wr = parseFloat(document.getElementById('wr').value) || 0;
+            const loginMult = parseFloat(document.getElementById('loginType').value);
+
+            // Perhitungan Dasar
+            let subtotal = (val.legend * PRICES.legend) + 
+                           (val.grand * PRICES.grand) + 
+                           (val.exquisite * PRICES.exquisite) + 
+                           (val.deluxe * PRICES.deluxe) + 
+                           (val.exceptional * PRICES.exceptional) + 
+                           (val.common * PRICES.common);
+
+            // Bonus WR
+            let bonusWR = 0;
+            if (wr >= 70) bonusWR = 250000;
+            else if (wr >= 60) bonusWR = 100000;
+
+            let finalTotal = (subtotal + bonusWR) * loginMult;
+
+            // Render Harga Akhir
+            document.getElementById('finalPrice').innerText = new Intl.NumberFormat('id-ID', {
+                style: 'currency', currency: 'IDR', minimumFractionDigits: 0
+            }).format(finalTotal);
+
+            // Render Rincian Tabel
+            let breakdownHTML = `
+                <div class="flex justify-between border-b border-slate-700 pb-2 mb-2 font-bold text-slate-300">
+                    <span>Kategori Skin</span>
+                    <span>Harga Satuan</span>
+                </div>
+                <div class="flex justify-between"><span>Legend</span> <span class="text-blue-400">Rp ${PRICES.legend.toLocaleString()}</span></div>
+                <div class="flex justify-between"><span>Grand (Collector)</span> <span class="text-yellow-500">Rp ${PRICES.grand.toLocaleString()}</span></div>
+                <div class="flex justify-between"><span>Exquisite</span> <span class="text-purple-400">Rp ${PRICES.exquisite.toLocaleString()}</span></div>
+                <div class="flex justify-between"><span>Deluxe</span> <span class="text-pink-400">Rp ${PRICES.deluxe.toLocaleString()}</span></div>
+                <div class="flex justify-between"><span>Exceptional</span> <span class="text-green-400">Rp ${PRICES.exceptional.toLocaleString()}</span></div>
+                <div class="flex justify-between border-t border-slate-700 pt-2 mt-2 font-bold">
+                    <span>Potongan Keamanan:</span>
+                    <span class="text-red-400">${(100 - (loginMult * 100))}%</span>
+                </div>
+            `;
+            document.getElementById('priceBreakdown').innerHTML = breakdownHTML;
+
+            // Efek Muncul
+            document.getElementById('resultBox').classList.remove('hidden');
+            
+            let desc = loginMult < 1 ? "⚠️ Harga disesuaikan karena faktor risiko login." : "✅ Harga optimal untuk akun Monsep Polos.";
+            document.getElementById('description').innerText = desc;
+        }
+    </script>
+</body>
+</html>
             let exquisite = (document.getElementById('skinExquisite').value || 0) * P_EXQUISITE;
             let deluxe = (document.getElementById('skinDeluxe').value || 0) * P_DELUXE;
             let exceptional = (document.getElementById('skinExceptional').value || 0) * P_EXCEPTIONAL;
