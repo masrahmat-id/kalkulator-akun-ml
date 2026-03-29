@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLBB Account Calculator - Pro Version</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: white; }
+        .card { background-color: #1e293b; border: 1px solid #334155; }
+        input, select { background-color: #334155; border: 1px solid #475569; color: white; }
+    </style>
+</head>
+<body class="p-5 md:p-10">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-blue-400">Kalkulator Harga Akun MLBB</h1>
+            <p class="text-slate-400 mt-2">Estimasi Harga Berdasarkan Standar Pasar Itemku 2026</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card p-6 rounded-xl shadow-lg">
+                <h2 class="text-xl font-semibold mb-4 border-b border-slate-600 pb-2 text-yellow-500">Koleksi Skin</h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm">Skin Legend (Magic Wheel/Event)</label>
+                        <input type="number" id="skinLegend" class="w-full p-2 rounded mt-1" placeholder="Contoh: 2">
+                    </div>
+                    <div>
+                        <label class="block text-sm">Skin Collector / Lucky Box</label>
+                        <input type="number" id="skinCollector" class="w-full p-2 rounded mt-1" placeholder="Contoh: 5">
+                    </div>
+                    <div>
+                        <label class="block text-sm">Skin Collab (KOF/Aspirants/Anime)</label>
+                        <input type="number" id="skinCollab" class="w-full p-2 rounded mt-1" placeholder="Contoh: 3">
+                    </div>
+                    <div>
+                        <label class="block text-sm">Skin Epic Limited</label>
+                        <input type="number" id="skinEpicLimit" class="w-full p-2 rounded mt-1" placeholder="Contoh: 10">
+                    </div>
+                    <div>
+                        <label class="block text-sm">Total Seluruh Skin (Grosir)</label>
+                        <input type="number" id="totalSkin" class="w-full p-2 rounded mt-1" placeholder="Contoh: 250">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-6 rounded-xl shadow-lg">
+                <h2 class="text-xl font-semibold mb-4 border-b border-slate-600 pb-2 text-green-500">Kualitas & Keamanan</h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm">Jenis Login</label>
+                        <select id="loginType" class="w-full p-2 rounded mt-1 text-white">
+                            <option value="1.0">Monsep (Data Polos) - 100% Price</option>
+                            <option value="0.8">Monsep (Ada Minus) - 80% Price</option>
+                            <option value="0.5">Log Pancingan/Nabrak - 50% Price</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm">Win Rate Total (%)</label>
+                        <input type="number" id="winRate" class="w-full p-2 rounded mt-1" placeholder="Contoh: 65">
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" id="emblemMax" class="w-5 h-5">
+                        <label class="text-sm">Emblem All Max?</label>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" id="recallTas" class="w-5 h-5">
+                        <label class="text-sm">Ada Recall Tas-Tas/Fire Crown?</label>
+                    </div>
+                </div>
+
+                <button onclick="hitungHarga()" class="w-full mt-8 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition">
+                    HITUNG ESTIMASI HARGA
+                </button>
+            </div>
+        </div>
+
+        <div id="resultCard" class="hidden mt-10 card p-8 rounded-xl border-2 border-blue-500 text-center">
+            <h2 class="text-2xl font-bold mb-2">Estimasi Harga Akun Anda:</h2>
+            <div id="finalPrice" class="text-4xl font-extrabold text-blue-400 mb-4">Rp 0</div>
+            <p id="priceNote" class="text-slate-400 italic text-sm"></p>
+            <button onclick="window.print()" class="mt-4 text-xs text-slate-500 underline">Cetak / Simpan PDF</button>
+        </div>
+    </div>
+
+    <script>
+        function hitungHarga() {
+            // Nilai Satuan (Adjusted Itemku 2026)
+            const PRICE_LEGEND = 350000;
+            const PRICE_COLLECTOR = 200000;
+            const PRICE_COLLAB = 250000;
+            const PRICE_EPIC_LIMIT = 60000;
+            const PRICE_PER_SKIN_BASE = 2000; // Harga grosir per skin umum
+
+            // Ambil Input
+            let legend = document.getElementById('skinLegend').value * PRICE_LEGEND;
+            let collector = document.getElementById('skinCollector').value * PRICE_COLLECTOR;
+            let collab = document.getElementById('skinCollab').value * PRICE_COLLAB;
+            let epicLimit = document.getElementById('skinEpicLimit').value * PRICE_EPIC_LIMIT;
+            let totalSkinCount = document.getElementById('totalSkin').value * PRICE_PER_SKIN_BASE;
+            
+            let winRate = parseFloat(document.getElementById('winRate').value) || 0;
+            let loginMult = parseFloat(document.getElementById('loginType').value);
+            let isEmblemMax = document.getElementById('emblemMax').checked;
+            let isRecallLangka = document.getElementById('recallTas').checked;
+
+            // Kalkulasi Dasar
+            let total = legend + collector + collab + epicLimit + totalSkinCount;
+
+            // Bonus Fitur
+            if (isEmblemMax) total += 100000;
+            if (isRecallLangka) total += 150000;
+            
+            // Bonus WinRate (High WR = Bonus)
+            if (winRate > 70) total += 200000;
+            else if (winRate > 60) total += 500000;
+
+            // Pengali Keamanan (Sangat Berpengaruh)
+            total = total * loginMult;
+
+            // Format Rupiah
+            let formatted = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(total);
+
+            // Tampilkan Hasil
+            document.getElementById('resultCard').classList.remove('hidden');
+            document.getElementById('finalPrice').innerText = formatted;
+            
+            let note = "";
+            if (loginMult < 1.0) {
+                note = "Catatan: Harga rendah karena faktor keamanan login (minus/pancingan).";
+            } else {
+                note = "Catatan: Harga optimal untuk akun data polos (Monsep).";
+            }
+            document.getElementById('priceNote').innerText = note;
+        }
+    </script>
+</body>
+</html>
