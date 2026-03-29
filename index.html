@@ -3,176 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLBB Ultimate Calculator - Pro Asset Edition</title>
+    <title>MLBB Account Calc - Emblem Update</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #020617; color: #f1f5f9; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
-        input, select { background: #1e293b !important; border: 1px solid #334155 !important; color: white !important; }
-        .accent-text { background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body { background-color: #0b1120; color: #e2e8f0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .input-card { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+        .gradient-text { background: linear-gradient(90deg, #60a5fa, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        input[type="number"]::-webkit-inner-spin-button { display: none; }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="min-h-screen p-4 md:p-10">
 
     <div class="max-w-6xl mx-auto">
-        <header class="mb-10 text-center">
-            <h1 class="text-4xl font-extrabold accent-text">Kalkulator Akun MLBB v2.0</h1>
-            <p class="text-slate-400 mt-2">Detail Skin, Hero, Emblem, & Aksesori Langka</p>
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-extrabold gradient-text tracking-tight uppercase">MLBB Pricing Engine</h1>
+            <p class="text-slate-400 mt-2 font-medium">Kalkulator Detil Skin & Emblem &bull; Versi 2026</p>
         </header>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            
-            <div class="lg:col-span-7 space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-7 input-card p-6 rounded-3xl shadow-2xl space-y-6">
+                <h3 class="text-lg font-bold border-b border-slate-700 pb-3 flex items-center gap-2">
+                    <span class="w-2 h-6 bg-blue-500 rounded-full"></span> Detail Skin & Aset
+                </h3>
                 
-                <div class="glass p-6 rounded-3xl">
-                    <h3 class="text-blue-400 font-bold mb-4 flex items-center gap-2">✨ Koleksi Skin (Update 2026)</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-xs font-bold">
-                        <div><label>Legend</label><input type="number" id="inLegend" class="w-full p-2 rounded-lg mt-1" placeholder="0"></div>
-                        <div><label>Grand (Collab)</label><input type="number" id="inGrand" class="w-full p-2 rounded-lg mt-1" placeholder="0"></div>
-                        <div><label>Exquisite</label><input type="number" id="inExquisite" class="w-full p-2 rounded-lg mt-1" placeholder="0"></div>
-                        <div><label>Deluxe</label><input type="number" id="inDeluxe" class="w-full p-2 rounded-lg mt-1" placeholder="0"></div>
-                        <div><label>Exceptional</label><input type="number" id="inExceptional" class="w-full p-2 rounded-lg mt-1" placeholder="0"></div>
-                        <div><label>Common</label><input type="number" id="inCommon" class="w-full p-2 rounded-lg mt-1" placeholder="0"></div>
-                    </div>
-                </div>
-
-                <div class="glass p-6 rounded-3xl">
-                    <h3 class="text-green-400 font-bold mb-4 flex items-center gap-2">🛡️ Properti & Aksesori</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="text-xs font-bold">Total Hero</label>
-                            <input type="number" id="inHero" class="w-full p-2 rounded-lg mt-1" placeholder="Max 125">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold">Emblem Max (Jumlah)</label>
-                            <input type="number" id="inEmblem" class="w-full p-2 rounded-lg mt-1" placeholder="0-9">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold">Recall Langka (Tas-Tas/Fire Crown)</label>
-                            <input type="number" id="inRecall" class="w-full p-2 rounded-lg mt-1" placeholder="Jumlah efek">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold">Emote Langka (Exclusive)</label>
-                            <input type="number" id="inEmote" class="w-full p-2 rounded-lg mt-1" placeholder="Jumlah emote">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass p-6 rounded-3xl grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm">
                     <div>
-                        <label class="text-xs font-bold text-slate-400">Login Type</label>
-                        <select id="loginType" class="w-full p-2 rounded-lg mt-1">
-                            <option value="1.0">Monsep Polos</option>
-                            <option value="0.7">Monsep (Minus)</option>
-                            <option value="0.4">Log Pancing/Nabrak</option>
+                        <label class="font-bold text-blue-400">Skin Legend</label>
+                        <input type="number" id="inLegend" class="w-full bg-slate-900/80 p-3 rounded-xl mt-1 border border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="0">
+                    </div>
+                    <div>
+                        <label class="font-bold text-yellow-500">Skin Grand (Collector)</label>
+                        <input type="number" id="inGrand" class="w-full bg-slate-900/80 p-3 rounded-xl mt-1 border border-slate-700 focus:ring-2 focus:ring-yellow-500 outline-none transition" placeholder="0">
+                    </div>
+                    <div>
+                        <label class="font-bold text-purple-400">Skin Exquisite</label>
+                        <input type="number" id="inExquisite" class="w-full bg-slate-900/80 p-3 rounded-xl mt-1 border border-slate-700 focus:ring-2 focus:ring-purple-500 outline-none transition" placeholder="0">
+                    </div>
+                    <div>
+                        <label class="font-bold text-pink-400">Skin Deluxe</label>
+                        <input type="number" id="inDeluxe" class="w-full bg-slate-900/80 p-3 rounded-xl mt-1 border border-slate-700 focus:ring-2 focus:ring-pink-500 outline-none transition" placeholder="0">
+                    </div>
+                    <div>
+                        <label class="font-bold text-green-400">Skin Exceptional</label>
+                        <input type="number" id="inExceptional" class="w-full bg-slate-900/80 p-3 rounded-xl mt-1 border border-slate-700 focus:ring-2 focus:ring-green-500 outline-none transition" placeholder="0">
+                    </div>
+                    <div>
+                        <label class="font-bold text-slate-400">Skin Common</label>
+                        <input type="number" id="inCommon" class="w-full bg-slate-900/80 p-3 rounded-xl mt-1 border border-slate-700 outline-none transition" placeholder="0">
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold border-b border-slate-700 pb-3 pt-4 flex items-center gap-2">
+                    <span class="w-2 h-6 bg-orange-500 rounded-full"></span> Status Emblem & Akun
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm">
+                    <div>
+                        <label class="font-bold text-orange-400">Kondisi Emblem</label>
+                        <select id="emblemStatus" class="w-full bg-slate-900 p-3 rounded-xl mt-1 border border-slate-700 outline-none cursor-pointer">
+                            <option value="150000">Semua Max (All Max)</option>
+                            <option value="50000">Hanya Emblem Utama Max</option>
+                            <option value="0">Masih Level Rendah</option>
                         </select>
                     </div>
                     <div>
-                        <label class="text-xs font-bold text-slate-400">Win Rate Total (%)</label>
-                        <input type="number" id="wr" class="w-full p-2 rounded-lg mt-1" placeholder="60">
+                        <label class="font-bold text-slate-400 uppercase">Keamanan Login</label>
+                        <select id="loginType" class="w-full bg-slate-900 p-3 rounded-xl mt-1 border border-slate-700 outline-none cursor-pointer">
+                            <option value="1.0">Monsep Polos (Bersih)</option>
+                            <option value="0.75">Monsep (Ada Minus)</option>
+                            <option value="0.40">Log Pancingan/Nabrak</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-bold text-slate-400 uppercase">Win Rate (%)</label>
+                        <input type="number" id="wr" class="w-full bg-slate-900 p-3 rounded-xl mt-1 border border-slate-700 outline-none transition" placeholder="60">
                     </div>
                 </div>
 
-                <button onclick="calculate()" class="w-full bg-blue-600 hover:bg-blue-500 py-4 rounded-2xl font-black tracking-widest transition shadow-lg shadow-blue-900/20">HITUNG RINCIAN</button>
+                <button onclick="calculate()" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-extrabold py-4 rounded-2xl shadow-xl transition-all active:scale-95">
+                    HITUNG RINCIAN HARGA
+                </button>
             </div>
 
-            <div id="resultBox" class="lg:col-span-5 hidden">
-                <div class="glass p-6 rounded-3xl sticky top-8 border-2 border-blue-500/30">
-                    <div class="bg-blue-600 p-4 rounded-2xl mb-6 text-center">
-                        <p class="text-[10px] font-bold uppercase tracking-widest opacity-80">Estimasi Harga Jual</p>
-                        <h2 id="finalPrice" class="text-4xl font-black">Rp 0</h2>
-                    </div>
-
-                    <div class="space-y-4">
-                        <h4 class="text-xs font-bold text-slate-500 uppercase">Breakdown Invoice:</h4>
-                        <div id="invoiceList" class="space-y-2 max-h-[400px] overflow-y-auto pr-2 text-sm">
-                            </div>
-                        <div id="taxSection" class="pt-4 border-t border-slate-700 text-xs text-red-400 italic"></div>
-                    </div>
-
-                    <div class="mt-6 grid grid-cols-2 gap-2">
-                        <button onclick="window.print()" class="bg-slate-800 p-3 rounded-xl text-[10px] font-bold">SIMPAN DATA</button>
-                        <button onclick="location.reload()" class="bg-red-900/20 text-red-400 p-3 rounded-xl text-[10px] font-bold">RESET</button>
-                    </div>
+            <div id="resultBox" class="lg:col-span-5 hidden space-y-4">
+                <div class="bg-white rounded-3xl p-6 text-slate-900 shadow-2xl border-t-[10px] border-indigo-500">
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Estimasi Final</p>
+                    <h2 id="finalPrice" class="text-5xl font-black text-indigo-800 my-1">Rp 0</h2>
+                    <p id="descStatus" class="text-[10px] font-bold text-white bg-indigo-600 px-3 py-1 rounded-full inline-block mt-2 uppercase"></p>
                 </div>
-            </div>
 
+                <div class="input-card rounded-3xl p-6 border border-slate-700">
+                    <h3 class="text-xs font-black text-slate-400 mb-5 uppercase tracking-[0.2em] border-b border-slate-700 pb-2">Rincian Kalkulasi</h3>
+                    
+                    <div id="invoiceContent" class="space-y-4">
+                        </div>
+
+                    <div id="bonusSection" class="mt-4 pt-4 border-t border-slate-700 space-y-3">
+                        </div>
+
+                    <div id="taxSection" class="mt-4 p-3 bg-red-900/10 rounded-xl text-red-400 text-[11px] font-bold hidden">
+                        </div>
+                </div>
+
+                <button onclick="window.print()" class="w-full py-4 bg-slate-800 hover:bg-slate-700 rounded-2xl text-[10px] font-black tracking-widest transition uppercase">Simpan Detail ke PDF</button>
+            </div>
         </div>
+
+        <footer class="mt-16 text-center text-[10px] text-slate-600 uppercase font-bold tracking-widest">
+            &copy; 2026 Build by Rahmattulah &bull; Bondowoso Dev
+        </footer>
     </div>
 
     <script>
         function calculate() {
-            // HARGA SATUAN (RESALE VALUE)
             const PRICES = {
                 legend: 350000,
                 grand: 200000,
-                exquisite: 80000,
-                deluxe: 35000,
-                exceptional: 12000,
-                common: 2000,
-                hero: 1000,      // Harga per hero
-                emblem: 15000,   // Harga per emblem max
-                recall: 100000,  // Harga per recall langka (tas-tas/fire crown/epic)
-                emote: 5000      // Harga per emote langka/exclusive
+                exquisite: 85000,
+                deluxe: 40000,
+                exceptional: 15000,
+                common: 2000
             };
 
             const labels = {
-                legend: "Skin Legend", grand: "Skin Grand", exquisite: "Skin Exquisite",
-                deluxe: "Skin Deluxe", exceptional: "Skin Exceptional", common: "Skin Common",
-                hero: "Hero Collection", emblem: "Emblem Max", recall: "Recall Efek Langka", emote: "Exclusive Emote"
+                legend: "Skin Legend",
+                grand: "Skin Grand (Collector)",
+                exquisite: "Skin Exquisite",
+                deluxe: "Skin Deluxe",
+                exceptional: "Skin Exceptional",
+                common: "Skin Common"
             };
 
-            const vals = {
+            const inputs = {
                 legend: parseInt(document.getElementById('inLegend').value) || 0,
                 grand: parseInt(document.getElementById('inGrand').value) || 0,
                 exquisite: parseInt(document.getElementById('inExquisite').value) || 0,
                 deluxe: parseInt(document.getElementById('inDeluxe').value) || 0,
                 exceptional: parseInt(document.getElementById('inExceptional').value) || 0,
-                common: parseInt(document.getElementById('inCommon').value) || 0,
-                hero: parseInt(document.getElementById('inHero').value) || 0,
-                emblem: parseInt(document.getElementById('inEmblem').value) || 0,
-                recall: parseInt(document.getElementById('inRecall').value) || 0,
-                emote: parseInt(document.getElementById('inEmote').value) || 0
+                common: parseInt(document.getElementById('inCommon').value) || 0
             };
 
-            let subtotal = 0;
-            let listHTML = "";
+            const emblemValue = parseInt(document.getElementById('emblemStatus').value);
+            const wr = parseFloat(document.getElementById('wr').value) || 0;
+            const loginMult = parseFloat(document.getElementById('loginType').value);
 
-            for (let key in vals) {
-                if (vals[key] > 0) {
-                    let cost = vals[key] * PRICES[key];
-                    subtotal += cost;
-                    listHTML += `
-                        <div class="flex justify-between bg-white/5 p-3 rounded-xl border border-white/5">
-                            <span><b class="text-blue-400">${vals[key]}</b> <span class="text-[11px]">${labels[key]}</span></span>
-                            <span class="font-bold">Rp ${cost.toLocaleString()}</span>
+            let subtotal = 0;
+            let invoiceHTML = "";
+
+            for (let key in inputs) {
+                if (inputs[key] > 0) {
+                    let itemTotal = inputs[key] * PRICES[key];
+                    subtotal += itemTotal;
+                    invoiceHTML += `
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-xs font-extrabold text-slate-200">${labels[key]}</p>
+                                <p class="text-[10px] text-slate-500">${inputs[key]} Unit x Rp ${PRICES[key].toLocaleString()}</p>
+                            </div>
+                            <span class="text-xs font-bold text-slate-300">Rp ${itemTotal.toLocaleString()}</span>
                         </div>
                     `;
                 }
             }
 
-            // Tambahan WR
-            let wr = parseFloat(document.getElementById('wr').value) || 0;
-            if (wr >= 65) {
-                subtotal += 150000;
-                listHTML += `<div class="flex justify-between text-green-400 p-2 text-[11px]"><span>Bonus High WR (${wr}%)</span><span>+Rp 150.000</span></div>`;
+            if (subtotal === 0 && emblemValue === 0) {
+                alert("Masukkan detail skin atau emblem!");
+                return;
             }
 
-            const loginMult = parseFloat(document.getElementById('loginType').value);
-            const finalPrice = subtotal * loginMult;
-
-            document.getElementById('invoiceList').innerHTML = listHTML;
-            document.getElementById('finalPrice').innerText = "Rp " + Math.round(finalPrice).toLocaleString('id-ID');
+            // Bagian Tambahan (Emblem & WR)
+            let bonusWR = wr >= 70 ? 250000 : (wr >= 60 ? 100000 : 0);
+            let extraHTML = "";
             
-            if(loginMult < 1) {
-                document.getElementById('taxSection').innerText = `* Potongan Keamanan: -Rp ${(subtotal - finalPrice).toLocaleString()}`;
-            } else {
-                document.getElementById('taxSection').innerText = "";
+            if (emblemValue > 0) {
+                extraHTML += `
+                    <div class="flex justify-between text-[11px] text-orange-400 font-bold italic">
+                        <span>Aset Emblem</span>
+                        <span>+ Rp ${emblemValue.toLocaleString()}</span>
+                    </div>
+                `;
             }
+
+            if (bonusWR > 0) {
+                extraHTML += `
+                    <div class="flex justify-between text-[11px] text-green-400 font-bold italic">
+                        <span>Bonus High WR (${wr}%)</span>
+                        <span>+ Rp ${bonusWR.toLocaleString()}</span>
+                    </div>
+                `;
+            }
+
+            let totalBeforeTax = subtotal + emblemValue + bonusWR;
+            let finalPrice = totalBeforeTax * loginMult;
+
+            // Render Potongan Keamanan
+            if (loginMult < 1) {
+                let pot = totalBeforeTax - finalPrice;
+                document.getElementById('taxSection').classList.remove('hidden');
+                document.getElementById('taxSection').innerText = `⚠️ POTONGAN KEAMANAN LOGIN: - Rp ${pot.toLocaleString()}`;
+            } else {
+                document.getElementById('taxSection').classList.add('hidden');
+            }
+
+            document.getElementById('invoiceContent').innerHTML = invoiceHTML;
+            document.getElementById('bonusSection').innerHTML = extraHTML;
+            document.getElementById('finalPrice').innerText = "Rp " + Math.round(finalPrice).toLocaleString('id-ID');
+            document.getElementById('descStatus').innerText = loginMult === 1 ? "Monsep Polos" : "Minus Data";
 
             document.getElementById('resultBox').classList.remove('hidden');
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
