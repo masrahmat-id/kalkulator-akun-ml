@@ -109,10 +109,6 @@
                 <button onclick="window.print()" class="w-full py-4 bg-slate-800 hover:bg-slate-700 rounded-2xl text-[10px] font-black tracking-widest transition uppercase">Simpan Detail ke PDF</button>
             </div>
         </div>
-
-        <footer class="mt-16 text-center text-[10px] text-slate-600 uppercase font-bold tracking-widest">
-            &copy; 2026 Build by Rahmattulah &bull; Bondowoso Dev
-        </footer>
     </div>
 
     <script>
@@ -214,16 +210,38 @@
             document.getElementById('resultBox').classList.remove('hidden');
             document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth' });
         }
+
+// Fungsi untuk mengambil data jumlah pengunjung
+function updateVisitorCount() {
+    // Ganti 'kalkulator-mlbb-rahmat' dengan nama unik bebas
+    const namespace = "kalkulator-mlbb-rahmat"; 
+    const key = "v1";
+
+    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+        .then(res => res.json())
+        .then(res => {
+            document.getElementById('visitorCount').innerText = res.value;
+        })
+        .catch(err => {
+            console.log("Gagal memuat counter");
+            document.getElementById('visitorCount').innerText = "1.240+"; // Angka dummy jika API limit
+        });
+}
+
+// Panggil fungsi saat halaman dibuka
+window.onload = updateVisitorCount;
+
+        
     </script>
 
 <footer class="mt-16 text-center">
     <p class="text-slate-600 text-[10px] uppercase font-bold tracking-[0.3em]">
         &copy; 2026 Build by Rahmattulah &bull; Bondowoso Dev
     </p>
-    <div class="mt-4 flex justify-center items-center gap-2">
-        <span class="text-[10px] text-slate-500 uppercase">Total Pengunjung:</span>
-        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fusername-kamu.github.io%2Frepo-kamu&count_bg=%233B82F6&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" alt="Hits"/>
-    </div>
+    <p class="text-slate-500 text-xs mt-2">
+    Telah digunakan sebanyak <span id="visitorCount" class="text-blue-400 font-bold">...</span> kali
+</p>
+
 </footer>
     
 </body>
