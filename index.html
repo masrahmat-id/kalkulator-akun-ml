@@ -209,39 +209,19 @@
 
             document.getElementById('resultBox').classList.remove('hidden');
             document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth' });
-        }
-
-// Fungsi untuk mengambil data jumlah pengunjung
-function updateVisitorCount() {
-    // Ganti 'kalkulator-mlbb-rahmat' dengan nama unik bebas
-    const namespace = "kalkulator-mlbb-rahmat"; 
-    const key = "v1";
-
-    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-        .then(res => res.json())
-        .then(res => {
-            document.getElementById('visitorCount').innerText = res.value;
-        })
-        .catch(err => {
-            console.log("Gagal memuat counter");
-            document.getElementById('visitorCount').innerText = "1.240+"; // Angka dummy jika API limit
-        });
-}
-
-// Panggil fungsi saat halaman dibuka
-window.onload = updateVisitorCount;
-
-        
+        }  
     </script>
 
 <footer class="mt-16 text-center">
     <p class="text-slate-600 text-[10px] uppercase font-bold tracking-[0.3em]">
         &copy; 2026 Build by Rahmattulah &bull; Bondowoso Dev
     </p>
-    <p class="text-slate-500 text-xs mt-2">
-    Telah digunakan sebanyak <span id="visitorCount" class="text-blue-400 font-bold">...</span> kali
-</p>
-
+    <div class="mt-4 flex flex-col items-center gap-2">
+        <span class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">Total Penggunaan Alat:</span>
+        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fmasrahmat-id.github.io%2Fkalkulator-akun-ml%2F&count_bg=%233B82F6&title_bg=%231E293B&icon=googleplay.svg&icon_color=%23E7E7E7&title=PENGGUNA&edge_flat=false" alt="Visitor Count"/>
+    </div>
+    
+    <p class="text-[9px] text-slate-700 mt-4 italic">Data harga diperbarui secara berkala mengikuti tren pasar Itemku.</p>   
 </footer>
     
 </body>
