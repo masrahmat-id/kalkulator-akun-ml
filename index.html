@@ -212,17 +212,28 @@
         }  
     </script>
 
-<footer class="mt-16 text-center">
-    <p class="text-slate-600 text-[10px] uppercase font-bold tracking-[0.3em]">
+<footer class="mt-16 text-center border-t border-slate-800 pt-8 pb-10">
+    <p class="text-slate-600 text-[10px] uppercase font-black tracking-[0.3em]">
         &copy; 2026 Build by Rahmattulah &bull; Bondowoso Dev
     </p>
-    <div class="mt-4 flex flex-col items-center gap-2">
-        <span class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">Total Penggunaan Alat:</span>
-        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fmasrahmat-id.github.io%2Fkalkulator-akun-ml%2F&count_bg=%233B82F6&title_bg=%231E293B&icon=googleplay.svg&icon_color=%23E7E7E7&title=PENGGUNA&edge_flat=false" alt="Visitor Count"/>
+    
+    <div class="mt-6 flex flex-col items-center gap-3">
+        <span class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">Statistik Penggunaan:</span>
+        
+        <a href="https://github.com/masrahmat-id/kalkulator-akun-ml">
+            <img src="https://base-hit-counter.vercel.app/api/badge?url=https%3A%2F%2Fmasrahmat-id.github.io%2Fkalkulator-akun-ml%2F&color=blue&style=flat-square" 
+                 alt="Visitor Count" 
+                 onerror="this.style.display='none'; document.getElementById('alt-counter').style.display='block';">
+        </a>
+
+        <div id="alt-counter" class="hidden text-blue-400 text-xs font-bold bg-slate-900 px-4 py-2 rounded-lg border border-slate-700">
+            Sistem Pencatatan Aktif
+        </div>
     </div>
     
-    <p class="text-[9px] text-slate-700 mt-4 italic">Data harga diperbarui secara berkala mengikuti tren pasar Itemku.</p>   
+    <p class="text-[9px] text-slate-700 mt-4 italic">Kalkulator ini diperbarui secara otomatis mengikuti tren harga pasar.</p>
 </footer>
+
     
 </body>
 </html>
